@@ -11,3 +11,11 @@ services:
     #   POSTGRES_USER: postgres
     #   POSTGRES_PASSWORD: 123
     #   POSTGRES_DB: nest
+
+    # The `volumes` tag allows us to share a folder with our container.
+    # Its syntax is as follows: [folder path on our machine]:[folder path to retrieve in the container]
+  volumes: 
+      - dev-db:/var/lib/postgresql/data
+volumes:
+  dev-db:
+    driver: local
