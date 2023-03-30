@@ -1,21 +1,37 @@
+
 version: '3.8'
 services:
   dev-db:
-    image: postgres:latest
+    image: postgres:13
     ports:
       - 5434:5432
-    # The `env_file` tag allows us to declare an environment file
-    env_file:
-      - .env # The name of your environment file (the one at the repository root)
-    # environment:
-    #   POSTGRES_USER: postgres
-    #   POSTGRES_PASSWORD: 123
-    #   POSTGRES_DB: nest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
 
-    # The `volumes` tag allows us to share a folder with our container.
-    # Its syntax is as follows: [folder path on our machine]:[folder path to retrieve in the container]
-  volumes: 
-      - dev-db:/var/lib/postgresql/data
-volumes:
-  dev-db:
-    driver: local
+
+# version: '3.8'
+# services:
+#   dev-db:
+#     image: postgres:latest
+#     ports:
+#       - 5434:5432
+#     # The `env_file` tag allows us to declare an environment file
+#     env_file:
+#       - .env # The name of your environment file (the one at the repository root)
+#     # environment:
+#     #   POSTGRES_USER: postgres
+#     #   POSTGRES_PASSWORD: 123
+#     #   POSTGRES_DB: nest
+
+#     # The `volumes` tag allows us to share a folder with our container.
+#     # Its syntax is as follows: [folder path on our machine]:[folder path to retrieve in the container]
+#   volumes: 
+#       - dev-db:/var/lib/postgresql/data
+# volumes:
+#   dev-db:
+#     driver: local
+
+
+#     #https://geshan.com.np/blog/2021/12/docker-postgres/
